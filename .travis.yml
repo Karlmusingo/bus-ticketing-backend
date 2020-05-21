@@ -4,7 +4,6 @@ services:
 env:
   global:
     - NODE_ENV=test
-    - JWT_SECRET=authors_haven@secret
     - DATABASE_URL_TEST=mongodb://localhost:27017/bus_ticketing_test
 language: node_js
 node_js:
@@ -12,9 +11,9 @@ node_js:
 cache:
   directories:
     - node_modules
-branches:
-  only:
-    - develop
+# branches:
+#   only:
+#     - develop
 install:
   - npm install
 script:
