@@ -1,4 +1,4 @@
-import app from './app';
+import { server as app } from './app';
 import logger from './helpers/logger';
 
 const { PORT = 3000 } = process.env;
