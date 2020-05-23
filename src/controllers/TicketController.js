@@ -22,7 +22,6 @@ export default class TicketController {
     const ticket = await Ticket.create({
       name,
       dob,
-      bus: 1,
     });
 
     return res.status(statusCodes.OK).json({

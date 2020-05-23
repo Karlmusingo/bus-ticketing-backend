@@ -9,10 +9,6 @@ const ticketSchema = new Schema({
     type: Date,
     default: new Date(),
   },
-  bus: {
-    type: Schema.Types.ObjectId, ref: 'Bus',
-    required: true,
-  },
   createdAt: {
     type: Date,
     default: new Date(),
