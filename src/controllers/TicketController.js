@@ -31,7 +31,7 @@ export default class TicketController {
   }
 
   /**
-   * Gets the tickets
+   * Get all the tickets
    *
    * @author Karl Musingo
    * @static
@@ -42,6 +42,33 @@ export default class TicketController {
    */
   static async getAll(req, res) {
     const tickets = await Ticket.find();
+
+    return res.status(statusCodes.OK).json({
+      status: statusCodes.OK,
+      tickets,
+    });
+  }
+
+  /**
+   * Get the today's tickets
+   *
+   * @author Karl Musingo
+   * @static
+   * @param {*} req
+   * @param {*} res
+   * @returns {array} chats
+   * @memberof TicketController
+   */
+  static async getForToday(req, res) {
+    const now = new Date();
+    const startOfToday = new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate(),
+    );
+    const tickets = await Ticket.find({
+      createdAt: { $gte: startOfToday },
+    });
 
     return res.status(statusCodes.OK).json({
       status: statusCodes.OK,
