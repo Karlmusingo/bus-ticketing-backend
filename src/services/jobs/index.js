@@ -9,7 +9,7 @@ export default (io) => {
   const travelTime = getTravelTime();
   nofifyer.schedule(`*/${travelTime + 1} * * * *`, async () => {
     let count = 0;
-    io.emit(initial ? DEPARTURE : ARRIVAL);
+    io.emit(!initial ? DEPARTURE : ARRIVAL);
     const travelTimemMilli = (travelTime - 1) * 60000;
     middleTiming = setInterval(() => {
       count += 1;
@@ -22,7 +22,7 @@ export default (io) => {
 
     setTimeout(() => {
       clearInterval(middleTiming);
-      io.emit(!initial ? DEPARTURE : ARRIVAL);
+      io.emit(initial ? DEPARTURE : ARRIVAL);
       initial = !initial;
     }, (travelTime - 1) * 60000);
   });
