@@ -11,6 +11,7 @@ const connectDb = () => {
       useNewUrlParser: true,
       useCreateIndex: true,
       useFindAndModify: false,
+      useUnifiedTopology: true,
     });
   } catch (err) {
     logger.error(err.message);
