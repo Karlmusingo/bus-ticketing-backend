@@ -24,8 +24,8 @@ export default class TicketController {
       dob,
     });
 
-    return res.status(statusCodes.OK).json({
-      status: statusCodes.OK,
+    return res.status(statusCodes.CREATED).json({
+      status: statusCodes.CREATED,
       ticket,
     });
   }
